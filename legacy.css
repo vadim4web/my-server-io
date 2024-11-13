@@ -1,0 +1,191 @@
+@media screen and (max-width: 1350px) {
+    .report {
+        position: absolute;
+        width: 25vw;
+        height: 4.35vh;
+        top: 80vh;
+        font-size: 3.4vh;
+        display: none;
+    }
+
+    .clear {
+        font-size: 1rem;
+        width: 17.5vw;
+        height: 3.2vh;
+    }
+
+    .client {
+        top: 10vh;
+        bottom: 21vh;
+    }
+
+    .loading h1 {
+        margin-top: -2vh;
+        margin-bottom: -2vh;
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+
+    .layout {
+        width: 65vw;
+        height: 57vh;
+        margin-bottom: 3vh;
+    }
+
+    .layout__after::before {
+        content: '';
+        position: relative;
+        width: 65vw;
+        height: 57vh;
+    }
+
+
+    .loading h1 {
+        margin-top: -2vh;
+        margin-bottom: -2vh;
+        font-size: 5vw;
+    }
+
+    .client {
+        width: 75vw;
+        height: 75vh;
+    }
+
+    #client svg {
+        left: 90vw
+    }
+
+    .error h1 {
+        line-height: 3vh;
+        font-size: 7vw;
+    }
+
+    .error p {
+        line-height: 2vh;
+        margin-top: 0.1vh;
+    }
+
+    .report {
+        width: 25vh;
+        height: 4.35vh;
+        top: 80vh;
+        font-size: 3.4vh;
+        display: none;
+    }
+
+    .clear {
+        font-size: 1rem;
+        width: 15vw;
+        height: 3vw;
+        bottom: 0;
+        margin: 0;
+    }
+
+    .myserver {
+        margin-top: 7%;
+    }
+}
+
+@media screen and (max-width: 1090px) and (orientation: landscape) {
+    .loading h1 {
+        margin-top: -2vh;
+        margin-bottom: -2vh;
+    }
+}
+
+@media screen and (max-width: 675px) {
+
+    .myserver {
+        margin-top: 30%;
+    }
+
+
+    .report {
+        width: 25vh;
+        height: 4.35vh;
+        top: 80vh;
+        font-size: 3.4vh;
+        display: none;
+    }
+
+    .myserver-bottom {
+        position: absolute;
+        margin: 0;
+        top: 5vh;
+    }
+
+
+    .clear {
+        font-size: 1rem;
+        margin-bottom: 1.5%;
+        width: 17.5vh;
+        height: 3.2vh;
+    }
+
+    #client svg {
+        top: 10vh;
+        right: 5vw;
+        transform: scale(1.5);
+        color: var(--color);
+    }
+
+    .loading h1 {
+        margin-top: -2vh;
+        margin-bottom: -2vh;
+        font-size: 5vw;
+    }
+
+    .progress-status {
+        font-size: 5vw;
+    }
+
+}
+
+@media (orientation: landscape) {
+
+    h1 {
+        font-size: 5vh !important;
+    }
+
+    .loading h1 {
+
+        margin-bottom: -4vh;
+    }
+
+    .error p {
+        font-size: 1vw;
+        line-height: 1.5vw;
+    }
+
+    .animation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation-name: spin !important;
+        animation-duration: 1111ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        margin-bottom: -3vh;
+        margin-top: 1vh;
+    }
+
+    #client svg {
+        top: 14vh;
+    }
+
+    .client {
+        height: 75vh;
+    }
+
+}
+
+@media screen and (min-width: 1090px) and (orientation: landscape) {
+
+
+    #client svg {
+        top: 4vw;
+    }
+
+}

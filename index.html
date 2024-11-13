@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Layout templates with unique CSS shapes etc. || (č) 1abcdesign">
+    <title>1abcdesign</title>
+
+    <style>
+        body {
+            font-family: "Gill Sans", sans-serif;
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1b1c20;
+            color: white;
+            overflow: hidden;
+        }
+
+        body:before {
+            content: "";
+            background-image: url('./bg-tile_transp.png');
+            background-position: center;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.25;
+        }
+
+
+
+        @media (orientation: landscape) {
+
+            #client #fullscreen {
+                position: absolute;
+                width: 3vw;
+                height: auto;
+                top: 6vh;
+                left: 92vw;
+                /* transform: scale(3); */
+                color: var(--color);
+            }
+
+            .layout {
+                position: relative;
+
+                width: 65.8vw;
+                height: 65.2vh;
+                --path: 0% 0%,
+                    42.5% 0%,
+                    45% 2.5%,
+                    55% 2.5%,
+                    57.5% 0%,
+                    100% 0%,
+                    100% 100%,
+                    57.5% 100%,
+                    55% 97.5%,
+                    45% 97.5%,
+                    42.5% 100%,
+                    0% 100%;
+                clip-path: polygon(var(--path));
+            }
+
+            .layout__after {
+                position: absolute;
+                /* width: 65vw;
+            height: 65vh; */
+                top: 1vh;
+                bottom: 1vh;
+                left: 1vw;
+                right: 1vw;
+
+                --path: 0% 0%,
+                    42.5% 0%,
+                    45% 2.5%,
+                    55% 2.5%,
+                    57.5% 0%,
+                    100% 0%,
+                    100% 100%,
+                    57.5% 100%,
+                    55% 97.5%,
+                    45% 97.5%,
+                    42.5% 100%,
+                    0% 100%;
+                clip-path: polygon(var(--path));
+                /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.33) 0%,
+                        rgba(0, 0, 0, 0.33) 50%,
+                        rgba(74, 118, 116, 0.5) 100%); */
+                /* background: conic-gradient(red, orange, yellow, green, blue); */
+
+            }
+
+            .layout_wrapper {
+
+                position: absolute;
+                top: 14.75vh;
+                right: 18.2vw;
+                bottom: 20.05vh;
+                left: 16vw;
+                width: 65.8vw;
+                height: 65.2vh;
+
+            }
+
+            .loading h1 {
+                margin-top: 16vh;
+                width: 100%;
+                font-weight: 900;
+                text-align: center;
+                font-size: 5vh;
+            }
+
+            .progress-bar {
+                margin-top: 2.2vh;
+                width: 100%;
+                height: 2vh;
+            }
+
+            .line-wrapper {
+                width: 62%;
+                margin: 0 19%;
+            }
+
+            .progress-line {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 10vh;
+                background: linear-gradient(90deg, rgba(255, 252, 2, 0) 0%,
+                        rgba(255, 252, 2, 0) 100%);
+            }
+
+            .the-line {
+                z-index: 2;
+                width: auto;
+                height: 1.75vh;
+                background-color: rgb(255, 252, 2);
+            }
+
+            .the-line-back {
+                z-index: 1;
+                width: auto;
+                height: 1.75vh;
+                background-color: rgb(18, 19, 22);
+            }
+
+            .line-row {
+                display: flex;
+                width: auto;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .progress-status {
+                position: relative;
+                /* line-height: 4vh; */
+                font-size: 2.8vh;
+                margin-top: -1.5vh;
+                letter-spacing: 0.1vw;
+                text-shadow: 0px 0px 3px whitesmoke;
+                z-index: 10 !important;
+                color: rgb(251, 251, 251);
+                width: 100%;
+                text-align: center;
+            }
+
+            .myserver {
+                position: absolute;
+                top: 14vh;
+                margin-bottom: 0.25vh;
+                line-height: 2.5vh;
+                font-size: 2.5vh;
+                width: 100%;
+                text-align: center;
+                color: rgba(9, 217, 255, 1);
+            }
+
+            #arrows {
+                height: 7.5vh;
+            }
+
+            .animation {
+                margin-top: 3vh;
+            }
+
+            .clear {
+                background-image: url(./clear.png) !important;
+                background-size: contain !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                position: absolute;
+                font-size: 2vh;
+                bottom: 0;
+                width: 9vw;
+                aspect-ratio: 9 / 2 !important;
+                height: auto;
+                right: 0.5vw;
+                color: rgba(153, 153, 153, 1);
+            }
+
+            footer {
+                position: absolute;
+                top: 95%;
+                height: 4%;
+
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .build {
+                position: absolute;
+
+                left: 1vw;
+                top: 0.5vh;
+            }
+
+            .build p {
+                font-size: 1em;
+                line-height: 1em;
+                z-index: 10;
+                color: rgba(77, 54, 80, 0.44);
+                text-shadow: 0 0 1px white;
+            }
+
+            .report,
+            .clear {
+                background: transparent;
+                color: whitesmoke;
+                cursor: pointer;
+            }
+
+            .clear:hover {
+                box-shadow: 0 0 1vh 0.5vh whitesmoke;
+                cursor: pointer;
+            }
+
+            .client {
+                position: absolute;
+                top: 6.6vh;
+                left: 9vw;
+                right: 9vw;
+                border: 0.5vh solid var(--color);
+                width: 82vw;
+                height: 82vh;
+                box-shadow: inset 0 0 1vh 1vh var(--color);
+                background-color: black;
+                overflow: hidden;
+            }
+
+            .myserver-bottom {
+                position: absolute;
+                top: 96.5vh;
+                bottom: 1vh;
+            }
+
+            #error h1 {
+                text-align: center;
+                font-size: 5vh;
+                margin-bottom: 1vh;
+            }
+
+            .report {
+                position: absolute;
+                width: 12.5vw;
+                background-image: url('/clear.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                aspect-ratio: 9 / 2 !important;
+                top: 84vh;
+                background-color: rgba(255, 201, 137, 0.50);
+                color: rgba(255, 191, 67, 1);
+                font-size: 3.4vh;
+                display: none;
+            }
+
+        }
+
+
+        #fullscreen:hover {
+            box-shadow: 0 0 3vh rgb(18, 217, 131) !important;
+            cursor: pointer !important;
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+
+        .wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation-name: spin !important;
+            animation-duration: 1111ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .loading {
+            position: relative !important;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .loading-bg {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%,
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(74, 118, 116, 0.53) 100%);
+        } */
+
+        .loading-color {
+
+            /* background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(33, 99, 81, 1) 0%,
+                    rgba(44, 47, 56, 1) 100%); */
+            color: rgba(101, 255, 134, 1);
+        }
+
+        .loading-wrapper {
+
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(44, 47, 56, 0.7)0%,
+                    rgba(33, 99, 81, 0.75) 100%);
+
+        }
+
+        .error-wrapper {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(94, 21, 77, 0.66) 0%,
+                    rgba(40, 28, 178, 0.1) 50%, rgba(248, 34, 106, 0.35) 100%);
+        }
+
+        .report:hover {
+            box-shadow: 0 0 1vh 0.5vh rgba(255, 191, 67, 1);
+            cursor: pointer;
+        }
+
+        .error-color {
+            color: rgba(248, 34, 106, 1);
+        }
+
+        .error-bg {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%,
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(77, 54, 80, 0.9) 100%);
+        }
+
+        .error {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error p {
+            margin-left: 1vw;
+            font-weight: 700;
+        }
+
+        #report {
+            display: none;
+        }
+
+        #client {
+            display: none;
+        }
+
+
+
+        #client {
+            --color: rgba(32, 102, 82, 1);
+            width: 100%;
+        }
+
+        .client,
+        .loading {
+            overflow: hidden !important;
+        }
+
+
+        #load__back,
+        #client__back,
+        #error__back {
+            z-index: 1 !important;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+        #error__back {
+            position: absolute;
+
+        }
+
+        #loading {
+            position: relative !important;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .layout__after {
+            z-index: 10;
+        }
+
+
+        @media (orientation: portrait) {
+
+            #report {
+                position: absolute;
+
+                width: 20vh;
+                aspect-ratio: 9 / 2 !important;
+                top: 84vh;
+                background-color: rgba(255, 201, 137, 0.50);
+                background-image: url('/clear.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                color: rgba(255, 191, 67, 1);
+                font-size: 3vh;
+                display: none;
+            }
+
+            #client #fullscreen {
+                position: absolute;
+                width: 5vh;
+                height: auto;
+                top: 6vh;
+                left: 88vw;
+                color: var(--color);
+            }
+
+            .layout {
+                position: relative;
+
+                width: 65.8vw;
+                height: 65.2vh;
+                --path: 0% 0%,
+                    42.5% 0%,
+                    45% 2.5%,
+                    55% 2.5%,
+                    57.5% 0%,
+                    100% 0%,
+                    100% 100%,
+                    57.5% 100%,
+                    55% 97.5%,
+                    45% 97.5%,
+                    42.5% 100%,
+                    0% 100%;
+                clip-path: polygon(var(--path));
+            }
+
+            .layout__after {
+                position: absolute;
+
+                top: 1vh;
+                bottom: 1vh;
+                left: 1vw;
+                right: 1vw;
+
+                --path: 0% 0%,
+                    42.5% 0%,
+                    45% 2.5%,
+                    55% 2.5%,
+                    57.5% 0%,
+                    100% 0%,
+                    100% 100%,
+                    57.5% 100%,
+                    55% 97.5%,
+                    45% 97.5%,
+                    42.5% 100%,
+                    0% 100%;
+                clip-path: polygon(var(--path));
+                /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.33) 0%,
+                        rgba(0, 0, 0, 0.33) 50%,
+                        rgba(74, 118, 116, 0.5) 100%); */
+
+            }
+
+            .layout_wrapper {
+
+                position: absolute;
+                top: 14.75vh;
+                right: 18.2vw;
+                bottom: 20.05vh;
+                left: 16vw;
+                width: 65.8vw;
+                height: 65.2vh;
+
+            }
+
+            .loading h1 {
+                margin-top: 16vh;
+                width: 100%;
+                font-weight: 900;
+                text-align: center;
+                font-size: 5vw;
+            }
+
+            .progress-bar {
+                margin-top: 2.2vh;
+                width: 100%;
+                height: 2vh;
+            }
+
+            .line-wrapper {
+                width: 62%;
+                margin: 0 19%;
+            }
+
+            .progress-line {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 10vh;
+                background: linear-gradient(90deg, rgba(255, 252, 2, 0) 0%,
+                        rgba(255, 252, 2, 0) 100%);
+            }
+
+            .the-line {
+                z-index: 2;
+                width: auto;
+                height: 1.75vh;
+                background-color: rgb(255, 252, 2);
+            }
+
+            .the-line-back {
+                z-index: 1;
+                width: auto;
+                height: 1.75vh;
+                background-color: rgb(18, 19, 22);
+            }
+
+            .line-row {
+                display: flex;
+                width: auto;
+                justify-content: center;
+                align-items: center;
+            }
+
+
+            .progress-status {
+                position: relative;
+                /* line-height: 4vh; */
+                font-size: 3vw;
+                margin-top: -1.5vh;
+                letter-spacing: 0.1vw;
+                text-shadow: 0px 0px 3px whitesmoke;
+                z-index: 10 !important;
+                color: rgb(251, 251, 251);
+                width: 100%;
+                text-align: center;
+            }
+
+            .myserver {
+                position: absolute;
+                top: 14vh;
+                margin-bottom: 0.25vh;
+                line-height: 2.5vh;
+                font-size: 2.5vh;
+                width: 100%;
+                text-align: center;
+                color: rgba(9, 217, 255, 1);
+            }
+
+            #arrows {
+                height: 7.5vh;
+            }
+
+            .animation {
+                margin-top: 3vh;
+            }
+
+            .clear {
+                background-image: url(./clear.png) !important;
+                background-size: contain !important;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: absolute;
+                font-size: 2vh;
+                bottom: 0;
+                width: 15vh;
+                aspect-ratio: 9 / 2 !important;
+                right: 0.5vw;
+                color: rgba(153, 153, 153, 1);
+            }
+
+            footer {
+                position: absolute;
+                top: 95%;
+                height: 4%;
+
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .build {
+                position: absolute;
+
+                left: 1vw;
+                top: 0.5vh;
+            }
+
+            .build p {
+                font-size: 1em;
+                line-height: 1em;
+                z-index: 10;
+                color: rgba(77, 54, 80, 0.44);
+                text-shadow: 0 0 1px white;
+            }
+
+            .report,
+            .clear {
+                background: transparent;
+                color: whitesmoke;
+                cursor: pointer;
+            }
+
+            .clear:hover {
+                box-shadow: 0 0 1vh 0.5vh whitesmoke;
+                cursor: pointer;
+            }
+
+            .client {
+                position: absolute;
+                top: 6.6vh;
+                left: 9vw;
+                right: 15vw;
+                width: 76vw;
+                height: 76vh;
+                box-shadow: inset 0 0 1vh 1vh var(--color);
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .myserver-bottom {
+                position: absolute;
+                top: 92.5vh;
+                bottom: 5vh;
+            }
+
+            #error h1 {
+                text-align: center;
+                font-size: 5vh;
+                margin-bottom: 1vh;
+            }
+
+            .report {
+                position: absolute;
+                width: 12.5vw;
+                height: 4.35vh;
+                top: 84vh;
+                background-color: rgba(255, 201, 137, 0.50);
+                color: rgba(255, 191, 67, 1);
+                font-size: 3.4vh;
+                display: none;
+            }
+
+        }
+
+        #load {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .client-color {
+            position: absolute;
+            z-index: 10;
+            width: 98%;
+            height: 98%;
+            background-color: black;
+        }
+
+        #error {
+            position: relative;
+            z-index: 10;
+            width: 96%;
+            height: 90%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+
+        }
+
+        .flex__centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scrollbar-width: thin;
+        }
+        .seo {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    </style>
+    <script>
+        window.onload = () => document.title = 'myserver.io | (č) 1abcdesign';
+    </script>
+</head>
+<body>
+
+    <h1 class="seo">Червоняк Вадим Вікторович</h1>
+
+    <div class="wrapper">
+
+        <div id="client">
+
+            <div class="client">
+
+                <img id="client__back" src="client.png" alt="background">
+
+                <div class="client-color">
+
+                </div>
+
+            </div>
+
+            <img id="fullscreen" src="fs.png" alt="fullscreen">
+
+            <!-- </div> -->
+
+        </div>
+
+        <div class="myserver">myserver.io</div>
+
+        <div class="layout_wrapper">
+
+            <div class="layout" id="layout">
+
+                <div id="load">
+
+                    <img id="load__back" src="download_.png" alt="background">
+
+                    <div class="layout__after">
+
+                        <div id="loading" class="loading loading-color">
+
+                            <h1>DOWNLOADING...</h1>
+
+                            <div class="animation">
+                                <img id="arrows" src="la.png" alt="arrows">
+                            </div>
+
+                            <div class="progress-bar">
+
+                                <div class="line-wrapper">
+
+                                    <div class="line-row">
+
+                                        <div class="progress-line">
+
+                                            <div class="the-line"></div>
+
+                                        </div>
+
+                                        <div class="the-line-back"></div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="progress-status">125.1Mb/150 [83%]</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <img id="error__back" src="err_back_colored.png" alt="background">
+
+                    <div id="error" class="error error-color">
+
+                        <h1>ERROR 404</h1>
+                        <p>
+                            Actor] : Large Actor casts a shadow and will cause an extreme performance hit unless
+                            buseBooleanEnvironmentShadowing is set to true
+                        </p>
+                        <p>
+                            A large Actor has been set to cast shadows-this will cause extreme performance issues and
+                            should
+                            have buseBooleanEnvironment Shadowing set to true,
+                        </p>
+                        <p>(Volume) causes damage, but has no damagetype defined
+                        </p>
+                        <p>This warning is caused when there is a volume that is set to cause damage but does not have a
+                            damage
+                            type defined. A damage type is important because it tells the game code how to handle a
+                            Actor's
+                            reaction to taking damage. This can be solved by going to the Actor's Property
+                            Window-Physics
+                            Volume
+                            and setting the 'DamageType' property.
+                        </p>
+                        <p>[Actor]: Brush has non-coplanar polygons
+                        </p>
+                        <p>This warning is caused when there is a brush in the level that has non-coplanar polygons.
+                            This is
+                            usually caused by using brush editing tools in geometry mode in extreme ways and can cause
+                            missing
+                            polygons in the level. This warning can be resolved by deleting the brush and recreating it.
+                        </p>
+                        <p>[Actor] in same location as (Another Actor]
+                        </p>
+                        <p>This warning is caused when there is an Actor that is in the same exact location as another
+                            Actor.
+                            This warning is usually the result of an accidental duplication or paste operation. It can
+                            be
+                            fixed
+                            by deleting one of the Actors, or disregarded if the placement was intentional.
+                        </p>
+                        <p>[Actor) has invalid DrawScale/ DrawScale3D
+                            send report</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="report" class="report">send report</button>
+
+        <footer>
+
+            <div class="build">
+                <p>Build 0.1.0 - w695.567</p>
+            </div>
+
+            <div><button class="clear">Clear Index</button></div>
+
+            <footer>
+
+    </div>
+
+
+    <script>
+
+        function progress() {
+            document.getElementById('error').style.display = 'none'
+            document.getElementById('error__back').style.display = 'none'
+            document.getElementsByClassName('wrapper')[0].classList.add('loading-wrapper')
+            document.getElementById('layout').classList.add('layout__after')
+            let line = document.getElementsByClassName('progress-line')[0]
+            let the_line = document.getElementsByClassName('the-line')[0]
+            let the_line_back = document.getElementsByClassName('the-line-back')[0]
+            let status = document.getElementsByClassName('progress-status')[0]
+            let width = 1
+
+            let id = setInterval(progressStatus, 111)
+
+            let out = setTimeout(client, 11555)
+
+            function progressStatus() {
+
+                if (width >= 100) {
+                    clearInterval(id)
+                } else {
+                    width++
+                    line.style.width = width + '%'
+                    the_line_back.style.width = (100 - width) + '%'
+                    status.innerHTML = (width * 1.5).toFixed(1) + 'Mb / 150 Mb' + `     [<span style="color:rgb(245,11,209)">${width * 1}%</span>]`
+                }
+            }
+
+            function client() {
+                // document.getElementsByClassName('wrapper')[0].classList.remove('loading-wrapper')
+                // document.getElementsByClassName('loading')[0].style.display = 'none'
+                document.getElementsByClassName('layout_wrapper')[0].style.display = 'none'
+
+                document.getElementById('layout').classList.remove('layout__after')
+
+                let client_data = true
+
+                let error_emit_timeout = setTimeout(error_emit, 4444)
+
+                if (client_data) {
+                    console.log('client_data is downloaded')
+                    document.getElementById('client').style.display = 'flex'
+                    document.getElementsByClassName('myserver')[0].classList.add('myserver-bottom')
+                } else {
+                    document.getElementsByClassName('loading')[0].style.display = 'none'
+                    document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+                    document.getElementById('error').style.display = 'flex'
+                    document.getElementById('report').style.display = 'block'
+                }
+            }
+
+            function error_emit() {
+                document.getElementsByClassName('wrapper')[0].classList.add('error-wrapper')
+                document.getElementById('load__back').style.display = 'none'
+                document.getElementsByClassName('loading')[0].style.display = 'none'
+                document.getElementById('client').style.display = 'none'
+
+                document.getElementById('layout').classList.add('layout__after')
+                document.getElementById('layout').classList.add('flex__centered')
+                document.getElementsByClassName('layout_wrapper')[0].style.display = 'flex'
+                document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+
+                document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+                document.getElementById('error__back').style.display = 'block'
+                document.getElementById('error').style.display = 'flex'
+                document.getElementById('report').style.display = 'block'
+            }
+        }
+
+        progress()
+
+    </script>
+</body>
+
+</html>

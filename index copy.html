@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myserver.io</title>
+
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            font-weight: 500;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1b1c20;
+            color: white;
+            overflow: hidden;
+        }
+
+        body:before {
+            content: "";
+            /* background-image: url('./bg-tile_transp.png'); */
+            background-image: url('./dl_.png');
+            /* background-position: center; */
+            background-size: cover;
+background-repeat: no-repeat;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.7;
+        }
+
+
+
+        .wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            opacity: 0.7;
+        }
+
+        .layout {
+
+            margin-left: 17.25%;
+            margin-right: 17.25%;
+            width: 65.5%;
+            height: 66%;
+            overflow: hidden;
+            overflow-y: auto;
+            --path: 0% 0%,
+                42.5% 0%,
+                44% 2.5%,
+                56% 2.5%,
+                57.5% 0%,
+                100% 0%,
+                100% 100%,
+                57.5% 100%,
+                56% 97.5%,
+                44% 97.5%,
+                42.5% 100%,
+                0% 100%;
+                clip-path: polygon(var(--path));
+            }
+            
+            .myserver {
+                margin-top: 8%;
+                margin-bottom: -0.5%;
+                line-height: 1rem;
+                font-size: 1.35rem;
+                width: 100%;
+                text-align: center;
+                color: rgba(9, 217, 255, 1);
+            }
+
+            .loading-color {
+
+background: rgb(255, 255, 255);
+background: linear-gradient(180deg, rgba(33, 99, 81, 0.75) 0%,
+        rgba(44, 47, 56, 0.7) 100%);
+color: rgba(101, 255, 134, 1);
+}
+
+.loading-wrapper {
+
+background: rgb(255, 255, 255);
+background: linear-gradient(180deg, rgba(44, 47, 56, 0.7)0%,
+        rgba(33, 99, 81, 0.75) 100%);
+
+}
+
+            .loading {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-around; */
+            /* align-items: center; */
+            overflow: hidden;
+        }
+
+        h1 {
+            /* letter-spacing: -0.1vw; */
+            margin-top: 10vw;
+            font-family: Tahoma, sans-serif;
+            width: 100%;
+            font-weight: 900;
+            text-align: center;
+            font-size: 2.75rem;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .animation {
+            margin-top: 1.5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation-name: spin !important;
+            animation-duration: 1111ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* margin-bottom: 2.75vh;
+            margin-top: 7vh; */
+        }
+
+        #arrows {
+            height: 4vw;
+        }
+
+        .progress-bar {
+            margin-top: 1.5vw;
+            width: 100%;
+            height: 5vh;
+        }
+
+        .line-wrapper {
+            width: 60%;
+            margin: 0 20%;
+        }
+
+        .progress-line {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 10vh;
+            background: linear-gradient(90deg, rgba(255, 252, 2, 0) 0%,
+                    rgba(255, 252, 2, 0) 100%);
+        }
+
+        .the-line {
+            z-index: 2;
+            width: auto;
+            height: 2vh;
+            background-color: rgb(255, 252, 2);
+        }
+
+        .the-line-back {
+            z-index: 1;
+            width: auto;
+            height: 2vh;
+            background-color: rgb(18, 19, 22);
+        }
+
+        .line-row {
+            display: flex;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-status {
+            position: relative;
+            /* line-height: 0.05rem; */
+            font-size: 1.5rem;
+            margin-top: -1vw;
+            text-shadow: 0px 0px 3px whitesmoke;
+            z-index: 10 !important;
+            color: rgb(251, 251, 251);
+            width: 100%;
+            text-align: center;
+        }
+
+
+        
+        footer {
+    
+            height: 4%;
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        .build {
+            /* position: absolute; */
+
+            left: 1vw;
+        }
+
+        .build p {
+            font-size: 1rem;
+            line-height: 1rem;
+            z-index: 10;
+            color: rgba(77, 54, 80, 0.44);
+            text-shadow: 0 0 1px white;
+        }
+
+        
+        .clear,
+        .report {
+            background: transparent;
+            /* border: 1px dashed white; */
+            color: whitesmoke;
+            cursor: pointer;
+        }
+
+        .clear {
+            background-image: url('./clear.png');
+            background-size: auto;
+            /* position: absolute; */
+            /* font-size: 1.5rem; */
+            bottom: 5vw;
+            width: auto;
+            height: auto;
+            right: 5rem;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .clear:hover {
+            box-shadow: 0 0 1vh 0.5vh whitesmoke;
+            cursor: pointer;
+        }
+
+
+
+
+        .error-color {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(94, 21, 77, 1) 0%,
+                    rgba(40, 28, 178, 0.5) 100%);
+            color: rgba(248, 34, 106, 1);
+        }
+
+        .error-bg {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%,
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(77, 54, 80, 0.9) 100%);
+        }
+
+        .error {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error p {
+            margin-left: 1vw;
+            font-weight: 700;
+        }
+
+        /* .loading-bg {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%,
+                    rgba(0, 0, 0, 0.5) 50%,
+                    rgba(74, 118, 116, 0.53) 100%);
+        } */
+
+
+
+        .error-wrapper {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(94, 21, 77, 0.66) 0%,
+                    rgba(40, 28, 178, 0.1) 50%, rgba(248, 34, 106, 0.35) 100%);
+        }
+
+
+
+
+
+
+
+
+
+
+        .report:hover {
+            box-shadow: 0 0 1vh 0.5vh rgba(255, 191, 67, 1);
+            cursor: pointer;
+        }
+
+        #client svg:hover {
+            box-shadow: 0 0 1vh 0.5 rgb(18, 217, 131);
+            cursor: pointer;
+        }
+
+
+
+        .report {
+            position: absolute;
+            width: 12.5vw;
+            height: 4.35vh;
+            top: 88vh;
+            background-color: rgba(255, 201, 137, 0.50);
+            color: rgba(255, 191, 67, 1);
+            font-size: 3.4vh;
+            display: none;
+        }
+
+
+
+
+
+
+
+
+        #error {
+            display: none;
+        }
+
+        #report {
+            display: none;
+        }
+
+        #client {
+            display: none;
+        }
+
+
+
+
+
+        #client {
+            --color: rgba(32, 102, 82, 1);
+            width: 100%;
+        }
+
+        #client svg {
+            position: absolute;
+            top: 8.8vh;
+            left: 94.5vw;
+            transform: scale(3);
+            color: var(--color);
+        }
+
+        .client {
+            position: absolute;
+            top: 6.6vh;
+            margin-left: 8.8vw;
+            margin-right: 8.8vw;
+            border: 0.5vh solid var(--color);
+            width: 82.5vw;
+            height: 82vh;
+            box-shadow: inset 0 0 1vh 1vh var(--color);
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .myserver-bottom {
+            position: absolute;
+            bottom: 1vh;
+        }
+
+        /* @media screen and (max-width: 1350px) {
+            .report {
+                position: absolute;
+                width: 25vw;
+                height: 4.35vh;
+                top: 80vh;
+                font-size: 3.4vh;
+                display: none;
+            }
+
+            .clear {
+                font-size: 1rem;
+                width: 17.5vw;
+                height: 3.2vh;
+            }
+
+            .client {
+                top: 10vh;
+                bottom: 21vh;
+            }
+
+            .loading h1 {
+                margin-top: -2vh;
+                margin-bottom: -2vh;
+                font-size: 5vw;
+            }
+        }
+
+        @media screen and (max-width: 1090px) {
+
+            .layout {
+                width: 65vw;
+                height: 57vh;
+                margin-bottom: 3vh;
+            }
+
+            .layout__after::before {
+                content: '';
+                position: relative;
+                width: 65vw;
+                height: 57vh;
+            }
+
+            .loading h1 {
+                margin-top: -2vh;
+                margin-bottom: -2vh;
+                font-size: 5vw;
+            }
+
+            .client {
+                width: 75vw;
+                height: 75vh;
+            }
+
+            #client svg {
+                left: 90vw
+            }
+
+            .error h1 {
+                line-height: 3vh;
+                font-size: 7vw;
+            }
+
+            .error p {
+                line-height: 2vh;
+                margin-top: 0.1vh;
+            }
+
+            .report {
+                width: 25vh;
+                height: 4.35vh;
+                top: 80vh;
+                font-size: 3.4vh;
+                display: none;
+            }
+
+            .clear {
+                font-size: 1rem;
+                width: 15vw;
+                height: 3vw;
+                bottom: 0;
+                margin: 0;
+            }
+
+            .myserver {
+                margin-top: 7%;
+            }
+        }
+
+        @media screen and (max-width: 1090px) and (orientation: landscape) {
+            .loading h1 {
+                margin-top: -2vh;
+                margin-bottom: -2vh;
+            }
+        }
+
+        @media screen and (max-width: 675px) {
+
+            .myserver {
+                margin-top: 30%;
+            }
+
+            .report {
+                width: 25vh;
+                height: 4.35vh;
+                top: 80vh;
+                font-size: 3.4vh;
+                display: none;
+            }
+
+            .myserver-bottom {
+                position: absolute;
+                margin: 0;
+                top: 5vh;
+            }
+
+            .clear {
+                font-size: 1rem;
+                margin-bottom: 1.5%;
+                width: 17.5vh;
+                height: 3.2vh;
+            }
+
+            #client svg {
+                top: 10vh;
+                right: 5vw;
+                transform: scale(1.5);
+                color: var(--color);
+            }
+
+            .loading h1 {
+                margin-top: -2vh;
+                margin-bottom: -2vh;
+                font-size: 5vw;
+            }
+
+            .progress-status {
+                font-size: 5vw;
+            }
+
+        }
+
+        @media (orientation: landscape) {
+
+            h1 {
+                font-size: 5vh !important;
+            }
+
+            .loading h1 {
+
+                margin-bottom: -4vh;
+            }
+
+            .error p {
+                font-size: 1vw;
+                line-height: 1.5vw;
+            }
+
+            .animation {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation-name: spin !important;
+                animation-duration: 1111ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                margin-bottom: -3vh;
+                margin-top: 1vh;
+            }
+
+            #client svg {
+                top: 14vh;
+            }
+
+            .client {
+                height: 75vh;
+            }
+
+        }
+
+        @media screen and (min-width: 1090px) and (orientation: landscape) {
+
+
+            #client svg {
+                top: 4vw;
+            }
+
+        }
+
+        .client,
+        .loading {
+            overflow: hidden !important;
+        } */
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="wrapper loading-bg">
+
+        <div id="client">
+
+            <div class="client client-color"></div>
+
+            <svg style="width:24px;height:24px;">
+                <path fill="currentColor"
+                    d="M9.5,13.09L10.91,14.5L6.41,19H10V21H3V14H5V17.59L9.5,13.09M10.91,9.5L9.5,10.91L5,6.41V10H3V3H10V5H6.41L10.91,9.5M14.5,13.09L19,17.59V14H21V21H14V19H17.59L13.09,14.5L14.5,13.09M13.09,9.5L17.59,5H14V3H21V10H19V6.41L14.5,10.91L13.09,9.5Z" />
+            </svg>
+
+        </div>
+
+        <div class="myserver">myserver.io</div>
+
+        <div class="layout" id="layout">
+
+            <div class="loading loading-color">
+
+                <h1>DOWNLOADING...</h1>
+
+                <div class="animation">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="156" height="156">
+                        <svg id="arrows" style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                        </svg>
+                    </svg> -->
+                    <img id="arrows" src="./la.png" alt="arrows">
+                </div>
+
+                <div class="progress-bar">
+
+                    <div class="line-wrapper">
+
+                        <div class="line-row">
+
+                            <div class="progress-line">
+
+                                <div class="the-line"></div>
+
+                            </div>
+
+                            <div class="the-line-back"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-status">125.1Mb/150 [83%]</div>
+
+                </div>
+
+            </div>
+
+            <div id="error" class="error error-color">
+                <h1>ERROR 404</h1>
+                <p>
+                    Actor] : Large Actor casts a shadow and will cause an extreme performance hit unless
+                    buseBooleanEnvironmentShadowing is set to true
+                </p>
+                <p>
+                    A large Actor has been set to cast shadows-this will cause extreme performance issues and should
+                    have buseBooleanEnvironment Shadowing set to true,
+                </p>
+                <p>(Volume) causes damage, but has no damagetype defined
+                </p>
+                <p>This warning is caused when there is a volume that is set to cause damage but does not have a
+                    damage
+                    type defined. A damage type is important because it tells the game code how to handle a Actor's
+                    reaction to taking damage. This can be solved by going to the Actor's Property Window-Physics
+                    Volume
+                    and setting the 'DamageType' property.
+                </p>
+                <p>[Actor]: Brush has non-coplanar polygons
+                </p>
+                <p>This warning is caused when there is a brush in the level that has non-coplanar polygons. This is
+                    usually caused by using brush editing tools in geometry mode in extreme ways and can cause
+                    missing
+                    polygons in the level. This warning can be resolved by deleting the brush and recreating it.
+                </p>
+                <p>[Actor] in same location as (Another Actor]
+                </p>
+                <p>This warning is caused when there is an Actor that is in the same exact location as another
+                    Actor.
+                    This warning is usually the result of an accidental duplication or paste operation. It can be
+                    fixed
+                    by deleting one of the Actors, or disregarded if the placement was intentional.
+                </p>
+                <p>[Actor) has invalid DrawScale/ DrawScale3D
+                    send report</p>
+            </div>
+
+        </div>
+
+
+        <button id="report" class="report">send report</button>
+
+        <footer>
+
+            <div class="build">
+                <p>Build 0.1.0 - w695.567</p>
+            </div>
+
+            <div class="clear"><button >Clear Index</button></div>
+
+            <footer>
+
+    </div>
+
+
+    <script>
+
+        function progress() {
+
+            document.getElementsByClassName('wrapper')[0].classList.add('loading-wrapper')
+            document.getElementById('layout').classList.add('layout__after')
+            let line = document.getElementsByClassName('progress-line')[0]
+            let the_line = document.getElementsByClassName('the-line')[0]
+            let the_line_back = document.getElementsByClassName('the-line-back')[0]
+            let status = document.getElementsByClassName('progress-status')[0]
+            let width = 1
+
+            let id = setInterval(progressStatus, 111)
+
+            // let out = setTimeout(client, 11555)
+
+            function progressStatus() {
+
+                if (width >= 100) {
+                    clearInterval(id)
+                } else {
+                    width++
+                    line.style.width = width + '%'
+                    the_line_back.style.width = (100 - width) + '%'
+                    status.innerHTML = (width * 1.5).toFixed(1) + 'Mb / 150 Mb' + `     [<span style="color:rgb(245,11,209)">${width * 1}%</span>]`
+                }
+            }
+
+            function client() {
+
+                document.getElementsByClassName('wrapper')[0].classList.remove('loading-wrapper')
+                document.getElementsByClassName('loading')[0].style.display = 'none'
+                document.getElementById('layout').classList.remove('layout__after')
+
+                let client_data = true
+
+                let error_emit_timeout = setTimeout(error_emit, 4444)
+
+                if (client_data) {
+                    console.log('client_data is downloaded')
+                    document.getElementById('client').style.display = 'flex'
+                    document.getElementsByClassName('myserver')[0].classList.add('myserver-bottom')
+                } else {
+                    document.getElementsByClassName('loading')[0].style.display = 'none'
+                    document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+                    document.getElementById('error').style.display = 'flex'
+                    document.getElementById('report').style.display = 'block'
+                }
+            }
+
+            function error_emit() {
+                document.getElementsByClassName('wrapper')[0].classList.add('error-wrapper')
+                document.getElementById('layout').classList.add('layout__after')
+                document.getElementById('client').style.display = 'none'
+                document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+
+                document.getElementsByClassName('loading')[0].style.display = 'none'
+                document.getElementsByClassName('myserver')[0].classList.remove('myserver-bottom')
+                document.getElementById('error').style.display = 'flex'
+                document.getElementById('report').style.display = 'block'
+            }
+        }
+
+        progress()
+
+    </script>
+</body>
+
+</html>
