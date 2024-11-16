@@ -6,7 +6,7 @@ The myserver.io project is a web application designed to provide a user-friendly
 
 ## Project Screenshot
 
-[![myserver.io Project Screenshot](https://github.com/vadym4che/my-server-io/blob/main/screenshot.png)](https://vadym4che.github.io/my-server-io/)
+[![myserver.io Project Screenshot](https://github.com/1abcdesign/my-server-io/blob/main/screenshot.png)](https://1abcdesign.github.io/my-server-io/)
 
 ## HTML
 
