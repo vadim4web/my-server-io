@@ -6,7 +6,7 @@ The myserver.io project is a web application designed to provide a user-friendly
 
 ## Project Screenshot
 
-[![myserver.io Project Screenshot](https://github.com/1abcdesign/my-server-io/blob/main/screenshot.png)](https://1abcdesign.github.io/my-server-io/)
+[![myserver.io Project Screenshot](https://github.com/vadim4web/my-server-io/blob/main/screenshot.png)](https://vadim4web.github.io/my-server-io/)
 
 ## HTML
 
@@ -50,4 +50,4 @@ To use the myserver.io project:
 
 ## Author
 
-(č) Vadym Chervoniak
+© Vadim Chervoniak
