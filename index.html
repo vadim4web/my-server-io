@@ -192,7 +192,7 @@
             }
 
             .clear {
-                background-image: url(./clear.png) !important;
+                background-image: url('clear.png') !important;
                 background-size: contain !important;
                 background-position: center !important;
                 background-repeat: no-repeat !important;
@@ -912,7 +912,6 @@
                 let error_emit_timeout = setTimeout(error_emit, 4444)
 
                 if (client_data) {
-                    console.log('client_data is downloaded')
                     document.getElementById('client').style.display = 'flex'
                     document.getElementsByClassName('myserver')[0].classList.add('myserver-bottom')
                 } else {
